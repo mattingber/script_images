@@ -1,0 +1,11 @@
+#Image repository
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: {{arg: image_name}}-repo
+  namespace: {{arg: namespace}}
+spec:
+  secretRef:
+    name: regecd
+  image: rabazhub.azurecr.io/{{arg: image_name}}
+  interval: 1m0s
